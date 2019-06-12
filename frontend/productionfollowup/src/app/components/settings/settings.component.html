@@ -1,0 +1,99 @@
+<div>
+  <div class="row">
+    <div class="col-md-8">
+      <h2>Settings</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h4>Machines</h4>
+      <p-table #dt [columns]="cols_m" [value]="machines" selectionMode="single" (onRowSelect)="onRowSelect_m($event)" [(selection)]="selectedMachine" [paginator]="true" [rows]="5">
+        <ng-template pTemplate="header" let-columns>
+          <tr>
+            <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+              {{col.header}}
+              <p-sortIcon [field]="col.field" ariaLabel="Activate to sort" ariaLabelDesc="Activate to sort in descending order" ariaLabelAsc="Activate to sort in ascending order"></p-sortIcon>
+            </th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-machine>
+          <tr [pSelectableRow]="machine">
+            <td>{{machine.id }}</td>
+            <td>{{machine.name}}</td>
+            <td>{{machine.performancemin}}</td>
+            <td>{{machine.qualitymin}}</td>
+            <td>{{machine.availabilitymin}}</td>
+            <td>{{machine.oeemin}}</td>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="summary" let-rowData>
+          <div style="text-align:left">
+            <button class="btn" pButton icon="fa fa-plus" (click)="showDialogToAdd_m()" label="Add"></button>
+          </div>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+
+
+  <p-dialog header="Machine Details" [(visible)]="displayDialog_m" [responsive]="true" showEffect="fade" [modal]="true"  [style]="{width: '300px'}">
+    <div class="ui-g ui-fluid" *ngIf="machine">
+      <div class="ui-g-12">
+        <div class="ui-g-4">
+          <label for="id_m">Id</label>
+        </div>
+        <div class="ui-g-8">
+          <input pInputText id="id_m" [(ngModel)]="machine.id" readonly/>
+        </div>
+      </div>
+      <div class="ui-g-12">
+        <div class="ui-g-4">
+          <label for="name_m">Name</label>
+        </div>
+        <div class="ui-g-8">
+          <input pInputText id="name_m" [(ngModel)]="machine.name" />
+        </div>
+      </div>
+      <div class="ui-g-12">
+        <div class="ui-g-4">
+          <label for="per_m">Performance Min</label>
+        </div>
+        <div class="ui-g-8">
+          <input pInputText id="per_m" [(ngModel)]="machine.performancemin" />
+        </div>
+      </div>
+      <div class="ui-g-12">
+        <div class="ui-g-4">
+          <label for="av_m">Availability Min</label>
+        </div>
+        <div class="ui-g-8">
+          <input pInputText id="av_m" [(ngModel)]="machine.availabilitymin" />
+        </div>
+      </div>
+      <div class="ui-g-12">
+        <div class="ui-g-4">
+          <label for="quality_m">Quality Min</label>
+        </div>
+        <div class="ui-g-8">
+          <input pInputText id="quality_m" [(ngModel)]="machine.qualitymin" />
+        </div>
+      </div>
+      <div class="ui-g-12">
+        <div class="ui-g-4">
+          <label for="oee_m">OEE min</label>
+        </div>
+        <div class="ui-g-8">
+          <input pInputText id="oee_m" [(ngModel)]="machine.oeemin" />
+        </div>
+      </div>
+    </div>
+    <p-footer>
+      <div class="ui-dialog-buttonpane ui-helper-clearfix">
+        <button *ngIf="newMachine" type="button" pButton icon="fa fa-close" (click)="create_m()" label="Create"></button>
+        <button *ngIf="!newMachine" type="button" pButton icon="fa fa-close" (click)="delete_m()" label="Delete"></button>
+        <button *ngIf="!newMachine" type="button" pButton icon="fa fa-check" (click)="save_m()" label="Save"></button>
+      </div>
+    </p-footer>
+  </p-dialog>
+</div>

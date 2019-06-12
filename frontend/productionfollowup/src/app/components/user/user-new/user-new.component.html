@@ -1,0 +1,32 @@
+<form #f="ngForm">
+  <div class="row">
+    <div class="col-md-6">
+      <h4>New User</h4>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-md-6">
+      <span for="mail">Mail</span>
+      <input type="text" id="mail" name="mail" [value]="user.mail">
+    </div>
+    <div class="form-group col-md-6">
+      <span for="name">Name</span>
+      <input type="text" id="name" name="name" [value]="user.name">
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-md-6">
+      <span for="role">Role</span>
+      <input type="text" id="role" name="role" [value]="user.role">
+    </div>
+    <div class="form-group col-md-6">
+      <span for="company">Company</span>
+      <input type="text" id="company" name="company" [value]="user.company">
+    </div>
+  </div>
+  <div class="row">
+    <button (click)="createUser(f)" class="btn btn-primary" type="submit" >Create</button>
+    <button (click)="cancel()" class="btn grey" type="submit" >Cancel</button>
+  </div>
+</form>

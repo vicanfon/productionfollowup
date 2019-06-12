@@ -1,0 +1,6 @@
+<tr></tr>
+<div *ngIf="messageService.messages.length" class="row">
+  <div class="col-md-5" *ngFor="let message of messageService.messages">
+    <ngb-alert type="danger">{{ message }}</ngb-alert>
+  </div>
+</div>

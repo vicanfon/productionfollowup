@@ -1,0 +1,29 @@
+<form (ngSubmit)="search()">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group col-md-3">
+        <label for="machine">Machine</label>
+        <p-dropdown id="machine" name="machine" [options]="machines" [(ngModel)]="selectedMachine" placeholder="Select a machine" optionLabel="name" [showClear]="true"></p-dropdown>
+      </div>
+      <div class="form-group col-md-3">
+        <label for="init">Initial Date</label>
+        <p-calendar id="init" name="idate" [showIcon]="true" hourFormat="24" dateFormat="dd.mm.yy" [(ngModel)]="initDate"></p-calendar>
+      </div>
+      <div class="form-group col-md-3">
+        <label for="end">End Date</label>
+        <p-calendar id="end" name="edate" [showIcon]="true" hourFormat="24" dateFormat="dd.mm.yy" [(ngModel)]="endDate"></p-calendar>
+      </div>
+      <div class="form-group col-md-3">
+        <tr></tr>
+      <button type="submit" class="btn btn-primary bottom">Search</button>
+      </div>
+    </div>
+  </div>
+</form>
+  <div class="row">
+    <div class="col-md-12">
+      <!--<p-toast [style]="{marginTop: '80px'}"></p-toast>-->
+
+      <p-chart name="chart" *ngIf="this.retrievedMachine" type="line" [data]="data" [options]="options" width="80vw" height="70vh"></p-chart>
+    </div>
+  </div>

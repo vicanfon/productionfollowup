@@ -1,0 +1,46 @@
+<div>
+  <div class="row">
+    <div class="col-md-4">
+      <h2>Users Management</h2>
+      <h5>Select one row to get more details:</h5>
+    </div>
+    <div class="col-md-8 text-right">
+      <a *ngIf="authService.getRole()=='mass'" class="btn btn-primary" (click)="createUser($event)">Create User</a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <p-table #dt (onRowSelect)="show($event)" [columns]="cols" [value]="users" selectionMode="single" [responsive]="true" [(selection)]="selectedUser" [paginator]="true" [rows]="5">
+        <ng-template pTemplate="header" let-columns>
+          <tr>
+            <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+              {{col.header}}
+              <p-sortIcon [field]="col.field" ariaLabel="Activate to sort" ariaLabelDesc="Activate to sort in descending order" ariaLabelAsc="Activate to sort in ascending order"></p-sortIcon>
+            </th>
+          </tr>
+          <tr>
+            <th *ngFor="let col of columns" [ngSwitch]="col.field">
+              <input style="width: 100%" *ngSwitchCase="'name'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+              <input style="width: 100%" *ngSwitchCase="'company'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+              <input style="width: 100%" *ngSwitchCase="'role'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+            </th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-user>
+          <tr [pSelectableRow]="user">
+            <td>{{user.mail}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.company}}</td>
+            <td>{{user.role}}</td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+    <!--<div class="col-md-4">
+      <app-alarm-detail [alarm]="selectedAlarm"></app-alarm-detail>
+    </div>-->
+  </div>
+  <!--<p-sidebar [(visible)]="display" position="right" styleClass="ui-sidebar-md">
+    <app-alarm-manual></app-alarm-manual>
+  </p-sidebar>-->
+</div>

@@ -1,0 +1,21 @@
+<div class="col-md-12">
+  <div class="row">
+    <app-navbar></app-navbar>
+  </div>
+  <div class="row">
+    <div class="col-md-2" *ngIf="authService.isAuthenticated()">
+      <app-toolbar></app-toolbar>
+    </div>
+    <div [ngClass]="formatMain()">
+      <router-outlet></router-outlet>
+    </div>
+    </div>
+    <div>
+      <div class="row">
+        <div class="col-md-12">
+          <app-messages></app-messages>
+        </div>
+      </div>
+    </div>
+  </div>
+

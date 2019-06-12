@@ -1,0 +1,30 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid" >
+    <div class="navbar-header" >
+      <img class="navbar-brand" src="assets/images/vfos_logo.png" height="100" width="100"/>
+      <a href="#" class="navbar-brand" style="color: white; align-content: center">
+        {{title}}
+      </a>
+    </div>
+    <div>
+      <!--<ul class="nav navbar-nav">
+        <li *ngIf="authService.isAuthenticated()">
+          <a routerLinkActive="active" routerLink="/dashboard" style="color: white;">Dashboard</a>
+        </li>
+        <li *ngIf="authService.isAuthenticated()">
+          <a routerLinkActive="active" routerLink="/alarms" style="color: white;">Alarms</a>
+        </li>
+        <li *ngIf="authService.isAuthenticated()">
+          <a routerLinkActive="active" routerLink="/interventions" style="color: white;">Interventions</a>
+        </li>
+      </ul>-->
+      <ul class="nav navbar-nav navbar-right">
+        <ng-template [ngIf]="!authService.isAuthenticated()">
+          <li><a routerLink="/signin" style="color: white;">Login</a></li>
+        </ng-template>
+        <li *ngIf="authService.isAuthenticated()"><a style="cursor:pointer; color: white;" (click)="onLogout()" >Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+

@@ -1,0 +1,26 @@
+{
+   "name": "productionfollowup",
+   "version": "1.0.0",
+   "description": "vfos",
+   "main": "app.js",
+   "dependencies": {
+      "@angular/cli": "6.1.1",
+      "express": "^4.16.3",
+      "async": "^2.6.0",
+      "body-parser": "~1.18.2",
+      "cookie-parser": "~1.4.3",
+      "express-validator": "^5.0.2",
+      "morgan": "~1.9.0",
+      "request": "^2.83.0",
+      "recursive-readdir-sync": "^1.0.6",
+      "string-contains": "^0.1.0",
+      "yeoman-gen-run": "^1.2.3"
+   },
+   "devDependencies": {},
+   "scripts": {
+      "boot": "npm install && cd frontend/productionfollowup && npm install && ng build --prod --aot --deploy-url=\"/productionfollowup/\" --base-href=\"/productionfollowup/\" ",
+      "start": "node ./bin/be/index.js"
+   },
+   "author": "vfos",
+   "license": "ISC"
+}
