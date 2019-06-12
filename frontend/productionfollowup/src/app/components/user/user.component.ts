@@ -17,7 +17,7 @@ export class UserComponent implements OnInit {
   selectedUser: User;
   display: boolean;
 
-  constructor(private dataService: DataService, private authService: AuthService, public dialogService: DialogService) { }
+  constructor(private dataService: DataService, public authService: AuthService, public dialogService: DialogService) { }
 
   ngOnInit() {
     this.getUsers();

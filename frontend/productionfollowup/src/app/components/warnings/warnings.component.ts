@@ -13,7 +13,7 @@ export class WarningsComponent implements OnInit {
   warnings: Warning[];
   cols: any[];
 
-  constructor(private dataService: DataService, private authService: AuthService) { }
+  constructor(private dataService: DataService, public authService: AuthService) { }
 
   ngOnInit() {
     console.log(this.authService.getCompany());

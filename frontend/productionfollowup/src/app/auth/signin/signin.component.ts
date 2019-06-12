@@ -11,7 +11,7 @@ import {User} from '../../models/user.model';
 })
 export class SigninComponent implements OnInit {
 
-  constructor(private authService: AuthService, private dataService: DataService) { }
+  constructor(public authService: AuthService, private dataService: DataService) { }
 
   ngOnInit() {
   }

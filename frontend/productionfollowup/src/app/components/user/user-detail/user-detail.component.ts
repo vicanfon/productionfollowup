@@ -13,7 +13,7 @@ import {NgForm} from '@angular/forms';
 export class UserDetailComponent implements OnInit {
   user: User;
 
-  constructor(private authService: AuthService, private dataService: DataService, private dialogService: DialogService, public ref: DynamicDialogRef, public config: DynamicDialogConfig) { }
+  constructor(public authService: AuthService, private dataService: DataService, private dialogService: DialogService, public ref: DynamicDialogRef, public config: DynamicDialogConfig) { }
 
   ngOnInit() {
       this.user= this.config.data;

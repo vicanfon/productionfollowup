@@ -21,7 +21,7 @@ export class DashboardComponent implements OnInit {
   data: any;
   options: any;
 
-  constructor(private dataService: DataService, private authService: AuthService) { }
+  constructor(private dataService: DataService, public authService: AuthService) { }
 
   ngOnInit() {
     this.getMachines();
