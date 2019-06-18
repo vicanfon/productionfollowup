@@ -4,6 +4,8 @@ import { DataService } from '../../services/data.service';
 import {Machine} from '../../models/machine.model';
 import {AuthService} from '../../services/auth.service';
 import {MachineData} from '../../models/machine-data.model';
+import {NgForm} from "@angular/forms";
+import {MessageService} from "../../services/message.service";
 
 @Component({
   selector: 'app-dashboard',
@@ -21,14 +23,14 @@ export class DashboardComponent implements OnInit {
   data: any;
   options: any;
 
-  constructor(private dataService: DataService, private authService: AuthService) { }
+  constructor(private dataService: DataService, public authService: AuthService, public messageService: MessageService) { }
 
   ngOnInit() {
     this.getMachines();
   }
 
   getMachines(): void {
-    this.dataService.getMachines().subscribe(machines => this.machines = machines);
+    this.dataService.getMachines(this.authService.getCompany()).subscribe(machines => this.machines = machines);
   }
 
   setChart(machineData: MachineData){
@@ -82,7 +84,11 @@ export class DashboardComponent implements OnInit {
     };
   }
 
-  search(){
-    this.dataService.getMachineData(this.selectedMachine.id, this.initDate, this.endDate).subscribe(machineData => {this.retrievedMachine = true; this.setChart(machineData[0]);});
+  search(form: NgForm){
+    if(this.selectedMachine && form.value.idate && form.value.edate){
+      this.dataService.getMeasuresbyMachine(this.selectedMachine.id, this.authService.getCompany(), form.value.idate, form.value.edate).subscribe(machineData => {this.retrievedMachine = true; console.log("dataretrieved: "+machineData); this.setChart(machineData[0]);});
+    }else{
+      this.messageService.add("Missing paramaters");
+    }
   }
 }

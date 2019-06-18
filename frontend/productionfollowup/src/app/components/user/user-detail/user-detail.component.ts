@@ -13,20 +13,19 @@ import {NgForm} from '@angular/forms';
 export class UserDetailComponent implements OnInit {
   user: User;
 
-  constructor(private authService: AuthService, private dataService: DataService, private dialogService: DialogService, public ref: DynamicDialogRef, public config: DynamicDialogConfig) { }
+  constructor(public authService: AuthService, private dataService: DataService, private dialogService: DialogService, public ref: DynamicDialogRef, public config: DynamicDialogConfig) { }
 
   ngOnInit() {
       this.user= this.config.data;
   }
 
   saveUser() {
-    this.dataService.editUser(this.user.mail,this.user.name,this.user.role,this.user.company);
-    this.ref.close();
+    this.dataService.editUser(this.user.mail,this.user.name,this.user.role,this.user.company).subscribe(data=>{this.ref.close();});
+
   }
 
   deleteUser() {
-    this.dataService.deleteUser(this.user.mail);
-    this.ref.close();
+    this.dataService.deleteUser(this.user.mail).subscribe(data=>{this.ref.close();});
   }
 
 }

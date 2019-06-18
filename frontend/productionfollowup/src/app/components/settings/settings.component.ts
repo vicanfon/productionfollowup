@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {DataService} from '../../services/data.service';
 import {Machine} from '../../models/machine.model';
+import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'app-settings',
@@ -17,18 +18,18 @@ export class SettingsComponent implements OnInit {
 
   displayDialog_m: boolean;
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService, public authService: AuthService) { }
 
   ngOnInit() {
-    this.dataService.getMachines().subscribe(machines => this.machines = machines);
+    this.dataService.getMachines(this.authService.getCompany()).subscribe(machines => this.machines = machines);
 
     this.cols_m = [
       { field: 'id', header: 'Id' },
       { field: 'name', header: 'Name' },
-      { field: 'performancemin', header: 'Performance Min' },
-      { field: 'qualitymin', header: 'Quality Min' },
-      { field: 'availabilitymin', header: 'Availability Min' },
-      { field: 'oeemin', header: 'OEE Min' }
+      { field: 'performance', header: 'Performance Min' },
+      { field: 'quality', header: 'Quality Min' },
+      { field: 'availability', header: 'Availability Min' },
+      { field: 'oee', header: 'OEE Min' }
     ];
   }
 
@@ -39,16 +40,15 @@ export class SettingsComponent implements OnInit {
     this.displayDialog_m = true;
   }
   create_m() {
-    this.dataService.createMachine(this.machine.name, +this.machine.performancemin, +this.machine.availabilitymin, +this.machine.qualitymin, +this.machine.oeemin);
-    this.displayDialog_m = false;
+    this.dataService.createMachine(this.machine.id, this.machine.name, +this.machine.performance, +this.machine.availability, +this.machine.quality, +this.machine.oee, this.authService.getCompany()).subscribe(data => {this.dataService.getMachines(this.authService.getCompany()).subscribe(machines => this.machines = machines); this.displayDialog_m = false;});
   }
   save_m() {
-    this.dataService.editMachine(+this.machine.id, this.machine.name, +this.machine.performancemin, +this.machine.availabilitymin, +this.machine.qualitymin, +this.machine.oeemin);
+    this.dataService.editMachine(this.machine.id, this.machine.name, +this.machine.performance, +this.machine.availability, +this.machine.quality, +this.machine.oee, this.authService.getCompany()).subscribe(data => {this.dataService.getMachines(this.authService.getCompany()).subscribe(machines => this.machines = machines); this.displayDialog_m = false;});
     this.displayDialog_m = false;
   }
 
   delete_m() {
-    this.dataService.deleteMachine(+this.machine.id);
+    this.dataService.deleteMachine(this.machine.id, this.authService.getCompany()).subscribe(data => {this.dataService.getMachines(this.authService.getCompany()).subscribe(machines => this.machines = machines);this.displayDialog_m = false;});
     this.displayDialog_m = false;
   }
 

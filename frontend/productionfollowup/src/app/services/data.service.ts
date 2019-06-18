@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import {Machine} from '../models/machine.model';
 import {User} from '../models/user.model';
-import { environment } from './../../environments/environment';
+import { environment } from '../../environments/environment';
 import {MachineData} from '../models/machine-data.model';
 import {Warning} from '../models/warning.model';
 
@@ -17,9 +17,10 @@ export class DataService {
   constructor(private http: HttpClient) {
   }
 
-  getMachineData(machineId: number, initDate: Date, endDate: Date): Observable<MachineData> {
-    return this.http.get<MachineData>(environment.apiUrl + '/machinedata?id=' + machineId); // need to add initDate and endDate to the query
+  getMeasuresbyMachine(machineId: number, company: string, initDate: Date, endDate: Date): Observable<MachineData> {
+    return this.http.get<MachineData>(environment.apiUrl + '/measures?idmachine=' + machineId + "&company=" + company + "&initdate=" + initDate + "&enddate=" + endDate); // need to add initDate and endDate to the query
   }
+
 
 
   getWarningsbyCompany(company: string): Observable<Warning[]> {
@@ -28,24 +29,24 @@ export class DataService {
 
   // get machines
 
-  getMachines(): Observable<Machine[]> {
-    return this.http.get<Machine[]>(environment.apiUrl + '/machines');
+  getMachines(company: string): Observable<Machine[]> {
+    return this.http.get<Machine[]>(environment.apiUrl + '/machines?company='+company);
   }
 
-  getMachine(id: number): Observable<Machine> {
-    return this.http.get<Machine>(environment.apiUrl + '/machines?id=' + id);
+  getMachine(id: number, company: string): Observable<Machine> {
+    return this.http.get<Machine>(environment.apiUrl + '/machines?id=' + id +'&company=' + company);
   }
 
-  createMachine(name: string, performancemin: number, availabilitymin: number, qualitymin: number, oeemin: number) {
-    return this.http.post(environment.apiUrl + '/machines', {name: name, performancemin: performancemin, availabilitymin: availabilitymin, qualitymin: qualitymin, oeemin: oeemin});
+  createMachine(id: string, name: string, performancemin: number, qualitymin: number, availabilitymin: number, oeemin: number, company: string) {
+    return this.http.post(environment.apiUrl + '/machines',{id: id, name: name, performance: performancemin, availability: availabilitymin, quality: qualitymin, oee: oeemin, company: company});
   }
 
-  editMachine(id: number, name: string, performancemin: number, availabilitymin: number, qualitymin: number, oeemin: number) {
-    return this.http.patch(environment.apiUrl + '/machines?id='+id, {name: name, performancemin: performancemin, availabilitymin: availabilitymin, qualitymin: qualitymin, oeemin: oeemin});
+  editMachine(id: string, name: string, performancemin: number, qualitymin: number, availabilitymin: number, oeemin: number, company: string) {
+    return this.http.patch(environment.apiUrl + '/machines?id='+id, {name: name, performance: performancemin, availability: availabilitymin, quality: qualitymin, oee: oeemin, company: company});
   }
 
-  deleteMachine(id: number) {
-    return this.http.delete(environment.apiUrl + '/machines?id='+id);
+  deleteMachine(id: number, company: string) {
+    return this.http.delete(environment.apiUrl + '/machines?id='+id+'&company='+company);
   }
 
   // get users
@@ -55,7 +56,7 @@ export class DataService {
   }
 
   getUser(mail: string): Observable<User> {
-    return this.http.get<User>(environment.apiUrl + '/users?mail=' + encodeURIComponent(mail));
+    return this.http.get<User>(environment.apiUrl + '/users?mail=' + encodeURI(mail));
   }
 
   createUser(mail: string, name: string, role: string, company: string) {

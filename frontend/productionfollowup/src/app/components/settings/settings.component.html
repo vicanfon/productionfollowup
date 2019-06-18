@@ -21,10 +21,10 @@
           <tr [pSelectableRow]="machine">
             <td>{{machine.id }}</td>
             <td>{{machine.name}}</td>
-            <td>{{machine.performancemin}}</td>
-            <td>{{machine.qualitymin}}</td>
-            <td>{{machine.availabilitymin}}</td>
-            <td>{{machine.oeemin}}</td>
+            <td>{{machine.performance}}</td>
+            <td>{{machine.quality}}</td>
+            <td>{{machine.availability}}</td>
+            <td>{{machine.oee}}</td>
           </tr>
         </ng-template>
         <ng-template pTemplate="summary" let-rowData>
@@ -44,7 +44,7 @@
           <label for="id_m">Id</label>
         </div>
         <div class="ui-g-8">
-          <input pInputText id="id_m" [(ngModel)]="machine.id" readonly/>
+          <input pInputText id="id_m" [(ngModel)]="machine.id"/>
         </div>
       </div>
       <div class="ui-g-12">
@@ -60,7 +60,7 @@
           <label for="per_m">Performance Min</label>
         </div>
         <div class="ui-g-8">
-          <input pInputText id="per_m" [(ngModel)]="machine.performancemin" />
+          <input pInputText id="per_m" [(ngModel)]="machine.performance" />
         </div>
       </div>
       <div class="ui-g-12">
@@ -68,7 +68,7 @@
           <label for="av_m">Availability Min</label>
         </div>
         <div class="ui-g-8">
-          <input pInputText id="av_m" [(ngModel)]="machine.availabilitymin" />
+          <input pInputText id="av_m" [(ngModel)]="machine.availability" />
         </div>
       </div>
       <div class="ui-g-12">
@@ -76,7 +76,7 @@
           <label for="quality_m">Quality Min</label>
         </div>
         <div class="ui-g-8">
-          <input pInputText id="quality_m" [(ngModel)]="machine.qualitymin" />
+          <input pInputText id="quality_m" [(ngModel)]="machine.quality" />
         </div>
       </div>
       <div class="ui-g-12">
@@ -84,7 +84,7 @@
           <label for="oee_m">OEE min</label>
         </div>
         <div class="ui-g-8">
-          <input pInputText id="oee_m" [(ngModel)]="machine.oeemin" />
+          <input pInputText id="oee_m" [(ngModel)]="machine.oee" />
         </div>
       </div>
     </div>
