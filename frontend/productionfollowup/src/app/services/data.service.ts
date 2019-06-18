@@ -18,7 +18,7 @@ export class DataService {
   }
 
   getMeasuresbyMachine(machineId: number, company: string, initDate: Date, endDate: Date): Observable<MachineData> {
-    return this.http.get<MachineData>(environment.apiUrl + '/measures?idmachine=' + machineId + "&company=" + company + "&initdate=" + initDate + "&enddate=" + endDate); // need to add initDate and endDate to the query
+    return this.http.get<MachineData>(environment.apiUrl + '/measures?idmachine=' + machineId + "&company=" + company + "&initdate=" + initDate.toLocaleString() + "&enddate=" + endDate.toLocaleString()); // need to add initDate and endDate to the query
   }
 
 

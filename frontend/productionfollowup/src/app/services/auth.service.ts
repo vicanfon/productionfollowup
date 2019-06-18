@@ -59,7 +59,7 @@ export class AuthService {
 //    this.token = null;
     this.company = null;
     localStorage.removeItem('vfostoken');
-    this.router.navigate(['/']);
+    this.router.navigate(['/signin']);
   }
 
   isAuthenticated(){
