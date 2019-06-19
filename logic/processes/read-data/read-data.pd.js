@@ -7,7 +7,7 @@ var request = require('request');
 let vfosMessagingPubsub = sdk.messaging;
 var broker = sdk.config.MESSAGING_PUBSUB.SERVER_URL;
 var userName = "archiver1";
-var domain = "pt.vfos";
+var domain = "pt.vfos.drivers";
 var routingKeys = ["#"];
 
 
@@ -44,10 +44,18 @@ function messageHandler(msg) {
      company: "sis"
      origin: "automatic"
 	 */
-	// console.log("> messageHandler: msg.content = \"" + msg.content.toString() + "\"");
+	let body = {
+        timestamp: message.timestamp,
+        company: "sis",
+        idmachine: message.data
+
+    };
+    if (message._sid == "performance" || message._sid == "quality" || message._sid == "availability" || message._sid == "oee"){
+      body[message._sid]= message.data;
+    }
 
 	  let options = {
-    url: 'http://ec2-35-181-152-100.eu-west-3.compute.amazonaws.com/vfrelstorage/vfos/rel/1.0.5/databases/productionfollowup/tables/alarms/rows',
+    url: 'http://ec2-35-181-152-100.eu-west-3.compute.amazonaws.com/vfrelstorage/vfos/rel/1.0.5/databases/productionfollowup/tables/measures/rows',
     method: 'post',
     headers: {
       "Content-Type": "application/json",
@@ -55,15 +63,7 @@ function messageHandler(msg) {
       "Authorization": "Basic cG9zdGdyZXM6dmZvcw=="
 
     },
-    body: JSON.stringify([{
-	 timestamp: message.timestamp,
-     status: "Detected",
-     idalarmtype: message.data,
-     idfailuretype: 1,
-     idmachine: message._did,
-     company: "sis",
-     origin: "automatic",
-     comment: ""}])
+    body: JSON.stringify([body])
   }
 
   /*
@@ -84,7 +84,6 @@ function messageHandler(msg) {
 }
 
 communications.registerPublicationReceiver(messageHandler);
-communications.registerPrivateMessageReceiver(messageHandler);
 /**
  * end of archive section
  */

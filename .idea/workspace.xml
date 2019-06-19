@@ -3,13 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="724a00bc-ca79-4c63-aa8a-4f910e018da0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/be/DAL/measures.js" beforeDir="false" afterPath="$PROJECT_DIR$/bin/be/DAL/measures.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/productionfollowup/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/productionfollowup/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/productionfollowup/src/app/components/dashboard/dashboard.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/productionfollowup/src/app/components/dashboard/dashboard.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/productionfollowup/src/app/components/dashboard/dashboard.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/productionfollowup/src/app/components/dashboard/dashboard.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/productionfollowup/src/app/components/warnings/warnings.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/productionfollowup/src/app/components/warnings/warnings.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/productionfollowup/src/app/services/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/productionfollowup/src/app/services/auth.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/productionfollowup/src/app/services/data.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/productionfollowup/src/app/services/data.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/processes/read-data/read-data.pd.js" beforeDir="false" afterPath="$PROJECT_DIR$/logic/processes/read-data/read-data.pd.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -58,7 +52,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/productionfollowup/src/app/services/auth.service.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="293">
@@ -70,11 +64,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/productionfollowup/package.json">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/logic/processes/read-data/read-data.pd.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="25" column="22" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
+            <state relative-caret-position="340">
+              <caret line="65" column="18" lean-forward="true" selection-start-line="65" selection-start-column="18" selection-end-line="65" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bin/libs/vfos-sdk/sdk-include.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" column="45" lean-forward="true" selection-start-line="1" selection-start-column="45" selection-end-line="1" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -128,7 +131,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/logic/processes/read-data/read-data.pd.js" />
         <option value="$PROJECT_DIR$/bin/be/config.json" />
         <option value="$PROJECT_DIR$/bin/be/app.js" />
         <option value="$PROJECT_DIR$/bin/be/index.js" />
@@ -171,6 +173,7 @@
         <option value="$PROJECT_DIR$/frontend/productionfollowup/src/app/components/dashboard/dashboard.component.html" />
         <option value="$PROJECT_DIR$/frontend/productionfollowup/src/app/components/dashboard/dashboard.component.ts" />
         <option value="$PROJECT_DIR$/frontend/productionfollowup/src/app/services/auth.service.ts" />
+        <option value="$PROJECT_DIR$/logic/processes/read-data/read-data.pd.js" />
       </list>
     </option>
   </component>
@@ -211,6 +214,27 @@
             <path>
               <item name="productionfollowup" type="b2602c69:ProjectViewProjectNode" />
               <item name="productionfollowup" type="462c0819:PsiDirectoryNode" />
+              <item name="bin" type="462c0819:PsiDirectoryNode" />
+              <item name="libs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="productionfollowup" type="b2602c69:ProjectViewProjectNode" />
+              <item name="productionfollowup" type="462c0819:PsiDirectoryNode" />
+              <item name="bin" type="462c0819:PsiDirectoryNode" />
+              <item name="libs" type="462c0819:PsiDirectoryNode" />
+              <item name="vfos-sdk" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="productionfollowup" type="b2602c69:ProjectViewProjectNode" />
+              <item name="productionfollowup" type="462c0819:PsiDirectoryNode" />
+              <item name="bin" type="462c0819:PsiDirectoryNode" />
+              <item name="libs" type="462c0819:PsiDirectoryNode" />
+              <item name="vfos-sdk" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="productionfollowup" type="b2602c69:ProjectViewProjectNode" />
+              <item name="productionfollowup" type="462c0819:PsiDirectoryNode" />
               <item name="frontend" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -218,6 +242,24 @@
               <item name="productionfollowup" type="462c0819:PsiDirectoryNode" />
               <item name="frontend" type="462c0819:PsiDirectoryNode" />
               <item name="productionfollowup" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="productionfollowup" type="b2602c69:ProjectViewProjectNode" />
+              <item name="productionfollowup" type="462c0819:PsiDirectoryNode" />
+              <item name="logic" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="productionfollowup" type="b2602c69:ProjectViewProjectNode" />
+              <item name="productionfollowup" type="462c0819:PsiDirectoryNode" />
+              <item name="logic" type="462c0819:PsiDirectoryNode" />
+              <item name="processes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="productionfollowup" type="b2602c69:ProjectViewProjectNode" />
+              <item name="productionfollowup" type="462c0819:PsiDirectoryNode" />
+              <item name="logic" type="462c0819:PsiDirectoryNode" />
+              <item name="processes" type="462c0819:PsiDirectoryNode" />
+              <item name="read-data" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -299,12 +341,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1560863913983</updated>
-      <workItem from="1560863915092" duration="20303000" />
+      <workItem from="1560863915092" duration="22281000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20303000" />
+    <option name="totallyTimeSpent" value="22281000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -321,13 +363,13 @@
     <layout>
       <window_info id="npm" side_tool="true" />
       <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.30201343" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.30201343" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="TypeScript" weight="0.3286119" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="GraphQL" />
-      <window_info anchor="bottom" id="Terminal" weight="0.3286119" />
+      <window_info anchor="bottom" id="Terminal" visible="true" weight="0.3286119" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
@@ -346,20 +388,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/bin/be/DAL/INIT/views/03_time_stats.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="278" selection-start-line="1" selection-start-column="278" selection-end-line="1" selection-end-column="278" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/be/config.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/productionfollowup/src/main.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -746,6 +774,20 @@
           <folding>
             <element signature="e#0#43#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/libs/vfos-sdk/sdk-include.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="45" lean-forward="true" selection-start-line="1" selection-start-column="45" selection-end-line="1" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logic/processes/read-data/read-data.pd.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="65" column="18" lean-forward="true" selection-start-line="65" selection-start-column="18" selection-end-line="65" selection-end-column="18" />
         </state>
       </provider>
     </entry>
