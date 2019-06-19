@@ -44,7 +44,7 @@ app.get('*', function(req,res){
 
 
 //app.use('/', express.static(path.join(path.normalize(__dirname), '../../views')));
-/*
+
 try {
   recursiveReadSync('logic/processes').forEach(file => {
     if (!contains(file, '.gitkeep')) {
@@ -59,7 +59,6 @@ try {
     throw err;
   }
 }
-*/
 /**
  * avoid cors
 */

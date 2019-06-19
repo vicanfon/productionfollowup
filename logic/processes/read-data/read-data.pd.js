@@ -52,6 +52,8 @@ function messageHandler(msg) {
     };
     if (message._sid == "performance" || message._sid == "quality" || message._sid == "availability" || message._sid == "oee"){
       body[message._sid]= message.data;
+    } else{
+        return;
     }
 
 	  let options = {
