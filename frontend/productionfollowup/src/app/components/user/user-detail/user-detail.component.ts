@@ -20,13 +20,12 @@ export class UserDetailComponent implements OnInit {
   }
 
   saveUser() {
-    this.dataService.editUser(this.user.mail,this.user.name,this.user.role,this.user.company);
-    this.ref.close();
+    this.dataService.editUser(this.user.mail,this.user.name,this.user.role,this.user.company).subscribe(data=>{this.ref.close();});
+
   }
 
   deleteUser() {
-    this.dataService.deleteUser(this.user.mail);
-    this.ref.close();
+    this.dataService.deleteUser(this.user.mail).subscribe(data=>{this.ref.close();});
   }
 
 }

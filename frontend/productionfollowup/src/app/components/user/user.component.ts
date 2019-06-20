@@ -35,7 +35,7 @@ export class UserComponent implements OnInit {
       data: event.data,
       header: 'User Detail'
     });
-    ref.onClose.subscribe(x => console.log(x));
+    ref.onClose.subscribe(x => this.getUsers());
   }
 
   getUsers(): void {
@@ -47,7 +47,7 @@ export class UserComponent implements OnInit {
       width: '85%',
       contentStyle: {'max-height': '95vw', 'overflow': 'auto'}
     });
-    ref.onClose.subscribe(x => console.log(x));
+    ref.onClose.subscribe(x => this.getUsers());
   }
 
 }

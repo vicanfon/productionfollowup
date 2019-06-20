@@ -17,14 +17,17 @@ export class WarningsComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.authService.getCompany());
-    this.dataService.getWarningsbyCompany(this.authService.getCompany()).subscribe(warnings => {this.warnings = warnings; console.log("warnings: "+JSON.stringify(warnings));});
+    this.dataService.getWarningsbyCompany(this.authService.getCompany()).subscribe(warnings => {
+      this.warnings = warnings;
+      // console.log("warnings: " + JSON.stringify(warnings));
+    });
 
     this.cols = [
-      { field: 'timestamp', header: 'Timestamp' },
-      { field: 'indicator', header: 'Indicator' },
-      { field: 'value', header: 'Value' }
+      {field: 'timestamp', header: 'Timestamp'},
+      {field: 'indicator', header: 'Indicator'},
+      {field: 'value', header: 'Value'},
+      {field: 'company', header: 'Company'},
+      {field: 'machine', header: 'Machine'}
     ];
-
   }
-
 }

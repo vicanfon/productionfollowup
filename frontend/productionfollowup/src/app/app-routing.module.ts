@@ -9,7 +9,7 @@ import {UserComponent} from './components/user/user.component';
 import {WarningsComponent} from './components/warnings/warnings.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'signin', pathMatch: 'full' },
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardService] },
   { path: 'warnings', component: WarningsComponent, canActivate: [AuthGuardService] },
   { path: 'master-data', component: SettingsComponent, canActivate: [AuthGuardService] },

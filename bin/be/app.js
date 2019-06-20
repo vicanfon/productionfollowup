@@ -6,8 +6,17 @@ var bodyParser = require('body-parser');
 const recursiveReadSync = require('recursive-readdir-sync')
 const contains = require("string-contains")
 const expressValidator = require('express-validator');
+const config = require('./config.json');
+var cors = require('cors');
 
 var app = express();
+
+// cors configuration
+if(config.cors.allow){
+  console.log("CORS is allowed!");
+  app.use(cors());
+}
+
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -16,11 +25,13 @@ app.use(cookieParser());
 app.use(expressValidator());
 
 //API ROUTES SHOULD BE PLACED HERE - START *****
-app.get('/api/sayhello', function(req,res,next){
+/*app.get('/api/sayhello', function(req,res,next){
     res.status(200).json( {
         message: "hello from API"
     })
-})
+})*/
+//set API routes
+app.use('/api',require('./router'));
 //API ROUTES SHOULD BE PLACED HERE - END *****
 
 //serve angular static folder
@@ -48,7 +59,6 @@ try {
     throw err;
   }
 }
-
 /**
  * avoid cors
 */

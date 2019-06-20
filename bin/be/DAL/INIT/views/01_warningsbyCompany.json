@@ -1,0 +1,4 @@
+{
+    "view_definition_query":"select warnings.id as id, warnings.timestamp, warnings.indicator, warnings.value, warnings.company, machines.name from productionfollowup.warnings as warnings left join productionfollowup.machines as machines on warnings.idMachine = machines.id",
+    "view_name":"warningsbyCompany"
+}

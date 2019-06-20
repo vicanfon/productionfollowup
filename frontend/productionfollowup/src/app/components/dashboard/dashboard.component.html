@@ -1,4 +1,5 @@
-<form (ngSubmit)="search()">
+<script src="dashboard.component.ts"></script>
+<form (ngSubmit)="search(f)" #f="ngForm">
   <div class="row">
     <div class="col-md-12">
       <div class="form-group col-md-3">
@@ -7,11 +8,11 @@
       </div>
       <div class="form-group col-md-3">
         <label for="init">Initial Date</label>
-        <p-calendar id="init" name="idate" [showIcon]="true" hourFormat="24" dateFormat="dd.mm.yy" [(ngModel)]="initDate"></p-calendar>
+        <p-calendar id="init" name="idate" [showIcon]="true" showTime="true" hourFormat="24" dateFormat="dd.mm.yy" [(ngModel)]="initDate"></p-calendar>
       </div>
       <div class="form-group col-md-3">
         <label for="end">End Date</label>
-        <p-calendar id="end" name="edate" [showIcon]="true" hourFormat="24" dateFormat="dd.mm.yy" [(ngModel)]="endDate"></p-calendar>
+        <p-calendar id="end" name="edate" [showIcon]="true" showTime="true" hourFormat="24" dateFormat="dd.mm.yy" [(ngModel)]="endDate"></p-calendar>
       </div>
       <div class="form-group col-md-3">
         <tr></tr>

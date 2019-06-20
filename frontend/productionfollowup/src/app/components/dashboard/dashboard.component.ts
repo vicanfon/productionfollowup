@@ -4,6 +4,8 @@ import { DataService } from '../../services/data.service';
 import {Machine} from '../../models/machine.model';
 import {AuthService} from '../../services/auth.service';
 import {MachineData} from '../../models/machine-data.model';
+import {NgForm} from "@angular/forms";
+import {MessageService} from "../../services/message.service";
 
 @Component({
   selector: 'app-dashboard',
@@ -20,43 +22,61 @@ export class DashboardComponent implements OnInit {
   retrievedMachine: boolean;
   data: any;
   options: any;
+  dates: any =[];
+  performance: any=[];
+  availability: any=[];
+  quality: any =[];
+  oee: any=[];
 
-  constructor(private dataService: DataService, public authService: AuthService) { }
+  constructor(private dataService: DataService, public authService: AuthService, public messageService: MessageService) { }
+
 
   ngOnInit() {
     this.getMachines();
   }
 
   getMachines(): void {
-    this.dataService.getMachines().subscribe(machines => this.machines = machines);
+    this.dataService.getMachines(this.authService.getCompany()).subscribe(machines => this.machines = machines);
   }
 
-  setChart(machineData: MachineData){
-    //    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+  setChart(measuresdata: any){
+    this.dates=[];
+    this.performance=[];
+    this.quality=[];
+    this.availability=[];
+    this.oee=[];
+
+    measuresdata.forEach((element)=>{
+      this.dates.push(element.timestamp);
+      this.performance.push(+element.performance);
+      this.quality.push(+element.quality);
+      this.availability.push(+element.availability);
+      this.oee.push(+element.oee);
+    });
     this.data = {
-      labels: machineData.dates,
+      labels: this.dates,
       datasets: [
         {
           label: 'Performance',
-          data: machineData.performance,
+          data: this.performance,
           fill: false,
           borderColor: '#bfc012'
         },
         {
           label: 'Quality',
-          data: machineData.quality,
+          data: this.quality,
           fill: false,
           borderColor: '#e13455'
         },
         {
           label: 'Availability',
-          data: machineData.availability,
+          data: this.availability,
           fill: false,
           borderColor: '#39d017'
         },
         {
           label: 'OEE',
-          data: machineData.oee,
+          data: this.oee,
           fill: false,
           borderColor: '#b450dd'
         }
@@ -75,14 +95,18 @@ export class DashboardComponent implements OnInit {
         yAxes: [{
           ticks: {
             beginAtZero: true,
-            suggestedMax: 100,
+            suggestedMax: 1,
           }
         }]
       }
     };
   }
 
-  search(){
-    this.dataService.getMachineData(this.selectedMachine.id, this.initDate, this.endDate).subscribe(machineData => {this.retrievedMachine = true; this.setChart(machineData[0]);});
+  search(form: NgForm){
+    if(this.selectedMachine && form.value.idate && form.value.edate){
+      this.dataService.getMeasuresbyMachine(this.selectedMachine.id, this.authService.getCompany(), form.value.idate.toLocaleString('en-US'), form.value.edate.toLocaleString('en-US')).subscribe(machineData => {this.retrievedMachine = true; console.log("dataretrieved: "+ JSON.stringify(machineData)); this.setChart(machineData);});
+    }else{
+      this.messageService.add("Missing paramaters");
+    }
   }
 }
