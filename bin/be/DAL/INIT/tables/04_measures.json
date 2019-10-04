@@ -13,23 +13,14 @@
     },
     {
       "allow_null":false,
-      "name":"performance",
+      "name":"data",
       "type":"real"
     },
     {
       "allow_null":false,
-      "name":"quality",
-      "type":"real"
-    },
-    {
-      "allow_null":false,
-      "name":"availability",
-      "type":"real"
-    },
-    {
-      "allow_null":false,
-      "name":"oee",
-      "type":"real"
+      "name":"type",
+      "size":10,
+      "type":"varchar"
     },
     {
       "name":"id",

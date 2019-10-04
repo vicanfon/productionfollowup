@@ -46,12 +46,17 @@ export class DashboardComponent implements OnInit {
     this.availability=[];
     this.oee=[];
 
-    measuresdata.forEach((element)=>{
+measuresdata.forEach((element)=>{
       this.dates.push(element.timestamp);
-      this.performance.push(+element.performance);
-      this.quality.push(+element.quality);
-      this.availability.push(+element.availability);
-      this.oee.push(+element.oee);
+      if (element.type == "performance"){
+        this.performance.push(+element.data);
+      }else if (element.type == "quality") {
+        this.quality.push(+element.data);
+      }else if (element.type == "availability") {
+        this.availability.push(+element.data);
+      } else if (element.type == "oee") {
+        this.oee.push(+element.data);
+      }
     });
     this.data = {
       labels: this.dates,

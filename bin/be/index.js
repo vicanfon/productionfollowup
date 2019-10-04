@@ -105,6 +105,7 @@ function onListening() {
   debug('Listening on ' + bind);
   console.log('Listening on ' + bind);
   console.log("INIT DB...");
+  console.log("version 3.0...");
   init();
 }
 
@@ -121,26 +122,16 @@ function init() {
       dal.init.tablesExistsAndCreates(function (tablesdone) {
         if (tablesdone) {
           console.log("Checking tables - DONE")
+          dal.init.populateDB(function (ok) {
+                if (ok) {
+                  console.log("Default users populated");
+                }else{
+                    console.log("Default users failed !!");
+                }});
           console.log("Checking views...");
           dal.init.viewsExistsAndCreates(function (viewsdone) {
             if (viewsdone) {
               console.log("Checking views - DONE");
-              console.log("Checking roles...");
-              dal.init.checkRoles(function (rolesExist) {
-                if (rolesExist) {
-                  console.log("Checking roles - DONE");
-                } else {
-                  console.log("Creating roles...");
-                  dal.init.createRoles(function (rolesdone) {
-                    if (rolesdone) {
-                      console.log("Creating roles - DONE")
-                    } else {
-                      console.log("NOT IMPLEMENTED :(")
-                    }
-                  })
-                }
-              })
-
             } else {
               console.log("NOT IMPLEMENTED :(")
               console.log("Creating roles...");
@@ -167,6 +158,12 @@ function init() {
           dal.init.tablesExistsAndCreates(function (tablesdone) {
             if (tablesdone) {
               console.log("Creating tables - DONE")
+              dal.init.populateDB(function (ok) {
+                if (ok) {
+                  console.log("Default users populated");
+                }else{
+                    console.log("Default users failed !!");
+                }});
               console.log("Checking views...");
               dal.init.viewsExistsAndCreates(function (viewsdone) {
                 if (viewsdone) {

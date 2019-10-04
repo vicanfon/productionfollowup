@@ -172,7 +172,7 @@ module.exports = {
                 "Accept": config.storage.accept,
                 "Authorization": config.storage.auth
             },
-            body: config.storage.dataBaseName
+            body: JSON.stringify({database_name: config.storage.dataBaseName })
         }
         request(Requestoptions, function (error, response, body) {
             console.log("error:" + error);
@@ -189,6 +189,40 @@ module.exports = {
                 cb(false);
             }
         })
+    },
+    populateDB: function (cb) {
+        let Requestoptions = {
+            url: config.storage.url + '/databases/' + config.storage.dataBaseName + "/tables/users/rows",
+            method: 'POST',
+            headers: {
+                "Content-Type": config.storage.contentType,
+                "Accept": config.storage.accept,
+                "Authorization": config.storage.auth
+            },
+            body: JSON.stringify([
+                {
+                    mail: "sis",
+                    name: "sis_administrator",
+                    company: "sis",
+                    role: "sis"
+                }
+            ])
+        }
+        request(Requestoptions, function (error, response, body) {
+            console.log("error:" + error);
+            console.log("response:" + JSON.stringify(response));
+
+            if (!error) {
+                console.log("status", response.statusCode)
+                if (response.statusCode == 201) {
+                    cb(true);
+                } else {
+                    cb(false);
+                }
+            } else {
+                cb(false);
+            }
+        });
     },
     checkRoles: function(cb){
         storage('GET', '/tables/roles/rows', {}, function(err, response, body){

@@ -1,4 +1,4 @@
 {
-  "view_definition_query":"select measures.id, measures.timestamp, measures.performance, measures.quality, measures.availability, measures.oee, measures.company, measures.idmachine, machines.name from productionfollowup.measures as measures left join productionfollowup.machines as machines on measures.idMachine = machines.id",
+  "view_definition_query":"select measures.id, measures.timestamp, measures.data, measures.company, measures.idmachine, machines.name, measures.type from productionfollowup.measures as measures left join productionfollowup.machines as machines on measures.idMachine = machines.id",
   "view_name":"measuresbyCompany"
 }

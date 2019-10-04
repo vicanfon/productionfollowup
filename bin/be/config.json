@@ -1,6 +1,6 @@
 {
     "storage":{
-        "url":"http://ec2-35-181-152-100.eu-west-3.compute.amazonaws.com/vfrelstorage/vfos/rel/1.0.5",
+        "url":"http://reverse-proxy/vfrelstorage/vfos/rel/1.0.5",
         "contentType":"application/json",
         "accept": "application/json",
         "auth":"Basic cG9zdGdyZXM6dmZvcw==",
