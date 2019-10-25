@@ -35,12 +35,13 @@ module.exports = {
       }
     })
   },
-  create: function (mail, name, role, company, cb) {
+  create: function (mail, name, role, company, password, cb) {
     let data = [{
       mail: mail,
       name: name,
       role: role,
-      company: company
+      company: company,
+      password: password
     }];
     storage('POST', "/tables/users/rows", data, function (error, response, body) {
       if (!error) {
@@ -50,12 +51,13 @@ module.exports = {
       }
     })
   },
-  update: function (mail, name, role, company, cb) {
+  update: function (mail, name, role, company, password, cb) {
     let data = {
       mail: mail,
       name: name,
       role: role,
-      company: company
+      company: company,
+      password: password
     };
     storage('PATCH', "/tables/users/rows?filter=" + encodeURI("mail='" + mail +"'"), data, function (error, response, body) {
       console.log("response: "+response.body);

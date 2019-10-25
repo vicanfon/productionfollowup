@@ -20,7 +20,7 @@ export class UserDetailComponent implements OnInit {
   }
 
   saveUser() {
-    this.dataService.editUser(this.user.mail,this.user.name,this.user.role,this.user.company).subscribe(data=>{this.ref.close();});
+    this.dataService.editUser(this.user.mail,this.user.name,this.user.role,this.user.company,this.user.password).subscribe(data=>{this.ref.close();});
 
   }
 

@@ -204,7 +204,8 @@ module.exports = {
                     mail: "sis",
                     name: "sis_administrator",
                     company: "sis",
-                    role: "sis"
+                    role: "sis",
+                    password: "vfos"
                 }
             ])
         }

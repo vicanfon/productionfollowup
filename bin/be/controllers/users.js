@@ -23,8 +23,8 @@ module.exports = {
     }
   },
   create: function (req, res) {
-    if (req.body.mail && req.body.name && req.body.role && req.body.company) {
-      dal.users.create(req.body.mail, req.body.name, req.body.role, req.body.company, function (err, answer) {
+    if (req.body.mail && req.body.name && req.body.role && req.body.company && req.body.password) {
+      dal.users.create(req.body.mail, req.body.name, req.body.role, req.body.company, req.body.password, function (err, answer) {
         if (!err) {
           res.status(201).json(answer);
         } else {
@@ -37,8 +37,8 @@ module.exports = {
   },
   update: function (req, res) {
     // console.log("BODY", req.body)
-    if (req.query.mail && req.body.name && req.body.role && req.body.company) {
-      dal.users.update(req.query.mail, req.body.name, req.body.role, req.body.company, function (err, answer) {
+    if (req.query.mail && req.body.name && req.body.role && req.body.company && req.body.password) {
+      dal.users.update(req.query.mail, req.body.name, req.body.role, req.body.company, req.body.password, function (err, answer) {
         if (!err) {
           res.status(200).send(answer);
         } else {

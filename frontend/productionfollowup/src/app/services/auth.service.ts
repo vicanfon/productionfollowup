@@ -22,7 +22,7 @@ export class AuthService {
 
   login(username: string, password: string){
     // call to storage to create login and password account
-    this.dataService.getUser(username).subscribe((user)=> {this.validate(user[0])});
+    this.dataService.getUser(username).subscribe((user)=> {this.validate(user[0], password)});
 
     /*if (username === "mass" && password === "1234"){
       this.token = "abc";
@@ -39,13 +39,17 @@ export class AuthService {
     }*/
   }
 
-  validate(user: User){
+  validate(user: User, password: string){
     if(user){
+                if(user.password == password){
       // this.token = "abc";
       this.role = user.role;
       this.company = user.company;
       localStorage.setItem('vfostoken', this.company);
       this.router.navigate(['/dashboard']);
+      }else{
+   this.messageService.add('Incorrect password');   
+  }
     }else {
       this.messageService.add('User not registered');
     }

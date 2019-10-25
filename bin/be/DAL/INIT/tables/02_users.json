@@ -5,6 +5,11 @@
           "name":"mail",
           "size":100,
           "type":"varchar"
+       },{
+          "allow_null":false,
+          "name":"password",
+          "size":20,
+          "type":"varchar"
        },
        {
           "allow_null":false,

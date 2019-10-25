@@ -26,6 +26,12 @@
     </div>
   </div>
   <div class="row">
+    <div class="form-group col-md-6">
+      <span for="password">Password</span>
+      <input type="password" id="password" name="password" [(ngModel)]="user.password">
+    </div>
+  </div>
+  <div class="row">
     <button (click)="createUser(f)" class="btn btn-primary" type="submit" >Create</button>
     <button (click)="cancel()" class="btn grey" type="submit" >Cancel</button>
   </div>

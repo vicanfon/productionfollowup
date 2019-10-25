@@ -25,6 +25,12 @@
       <input type="text" id="company" name="company" [(ngModel)]="user.company">
     </div>
   </div>
+    <div class="row">
+    <div class="form-group col-md-6">
+      <span for="password">Password</span>
+      <input type="password" id="password" name="password" [(ngModel)]="user.password">
+    </div>
+  </div>
   <div class="row">
     <button (click)="saveUser()" class="btn btn-primary" type="submit" >Save</button>
     <button (click)="deleteUser()" class="btn red" type="submit" >Delete</button>

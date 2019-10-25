@@ -8,10 +8,11 @@ RUN npm run boot
 EXPOSE 4201
 LABEL vf-OS=true
 LABEL vf-OS.icon=img/2.png
-LABEL vf-OS.urlprefixReplace=true
+LABEL vf-OS.urlprefixReplace=true6
+LABEL vf-OS.frontendUri="/productionfollowup/"
 LABEL vf-OS.name=productionfollowup
-LABEL vf-OS.market.product=77
-LABEL vf-OS.version.major=1.3
+LABEL vf-OS.market.product=9
+LABEL vf-OS.version.major=1
 LABEL vf-OS.market.price=1
-LABEL vf-OS.version.version=3.0
+LABEL vf-OS.version.version=3.6
 CMD ["npm", "start"]
