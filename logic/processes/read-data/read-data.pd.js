@@ -25,7 +25,7 @@ function messageHandler(msg) {
 	topic = msg.routingKey;
 	// pt.vfos.drivers.opc_ua.d1.s1
 	// console.log('topic ', topic);
-		      	  console.log("***msg*** "+JSON.stringify(msg.routingKey));
+		      	  console.log("***msg*** "+ msg.content);
 	  if (topic.startsWith("pt.vfos.drivers") && (topic.includes("performance") || topic.includes("quality") || topic.includes("availability") || topic.includes("oee"))){
 	          	  console.log("***new measure***");
 
@@ -84,7 +84,8 @@ function messageHandler(msg) {
   }
   
   request(optionsR, function (err, answer) {
-      let body= JSON.parse(answer.body)
+      let body= JSON.parse(answer.body);
+      if (body.list_of_rows && body.list_of_rows.length>0){
       console.log("limits**:"+JSON.stringify(body.list_of_rows[0]));
       let limits = body.list_of_rows[0];
       console.log("row**:"+JSON.stringify(limits));
@@ -111,6 +112,8 @@ function messageHandler(msg) {
       //console.log("answer:"+JSON.stringify(answer));
   });
           }
+      }
+
   });
   // store in warning if overcome
  }
