@@ -60,7 +60,7 @@ function messageHandler(msg) {
 
     },
     body: JSON.stringify([{
-	 timestamp: message.timestamp,
+	 timestamp: new Date(message.timestamp).toUTCString(),
      data: message.data,
      idmachine: message._did,
      company: "sis",
@@ -85,7 +85,7 @@ function messageHandler(msg) {
   
   request(optionsR, function (err, answer) {
       let body= JSON.parse(answer.body)
-      // console.log("limits**:"+JSON.stringify(body.list_of_rows[0]));
+      console.log("limits**:"+JSON.stringify(body.list_of_rows[0]));
       let limits = body.list_of_rows[0];
       console.log("row**:"+JSON.stringify(limits));
       if (limits[message._sid] < message.data){

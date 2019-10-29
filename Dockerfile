@@ -14,5 +14,5 @@ LABEL vf-OS.name=productionfollowup
 LABEL vf-OS.market.product=9
 LABEL vf-OS.version.major=1
 LABEL vf-OS.market.price=1
-LABEL vf-OS.version.version=3.6
+LABEL vf-OS.version.version=4.3
 CMD ["npm", "start"]
