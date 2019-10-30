@@ -19,7 +19,7 @@
     {
       "allow_null":false,
       "name":"type",
-      "size":10,
+      "size":20,
       "type":"varchar"
     },
     {

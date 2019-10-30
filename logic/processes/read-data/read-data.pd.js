@@ -68,7 +68,11 @@ function messageHandler(msg) {
   }
   
   request(options, function (err, answer) {
-      //console.log("answer:"+JSON.stringify(answer));
+      if(err){
+          console.log("error: "+JSON.stringify(err));
+      }else{
+          console.log("answer:"+JSON.stringify(answer));
+      }
   });
   // read measure
   
@@ -86,7 +90,7 @@ function messageHandler(msg) {
   request(optionsR, function (err, answer) {
       let body= JSON.parse(answer.body);
       if (body.list_of_rows && body.list_of_rows.length>0){
-      console.log("limits**:"+JSON.stringify(body.list_of_rows[0]));
+      // console.log("limits**:"+JSON.stringify(body.list_of_rows[0]));
       let limits = body.list_of_rows[0];
       console.log("row**:"+JSON.stringify(limits));
       if (limits[message._sid] < message.data){
