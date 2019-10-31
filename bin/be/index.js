@@ -105,7 +105,7 @@ function onListening() {
   debug('Listening on ' + bind);
   console.log('Listening on ' + bind);
   console.log("INIT DB...");
-  console.log("version 4.6...");
+  console.log("version 5.2...");
   init();
 }
 

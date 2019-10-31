@@ -40,14 +40,14 @@ export class DashboardComponent implements OnInit {
   }
 
   setChart(measuresdata: any){
-    this.dates=[];
+    this.dates=new Set();
     this.performance=[];
     this.quality=[];
     this.availability=[];
     this.oee=[];
 
 measuresdata.forEach((element)=>{
-      this.dates.push(element.timestamp);
+      this.dates.add(element.timestamp);
       if (element.type == "performance"){
         this.performance.push(+element.data);
       }else if (element.type == "quality") {
@@ -59,7 +59,7 @@ measuresdata.forEach((element)=>{
       }
     });
     this.data = {
-      labels: this.dates,
+      labels: Array.from(this.dates),
       datasets: [
         {
           label: 'Performance',
